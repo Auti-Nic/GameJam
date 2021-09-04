@@ -7,14 +7,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifetime;
 
     private float timeAlive = 0;
-    
+
+    private TimeBody timeBody;
+
+    private void Start()
+    {
+        timeBody = GetComponent<TimeBody>();
+    }
+
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
 
-        if (timeAlive < lifetime)
-            timeAlive += Time.deltaTime;
-        else
+        if (timeBody.TimeAlive > lifetime)
             Destroy(gameObject);
     }
 }

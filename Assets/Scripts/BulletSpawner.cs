@@ -9,7 +9,7 @@ public class BulletSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.K))
             SpawnBullet();
     }
 

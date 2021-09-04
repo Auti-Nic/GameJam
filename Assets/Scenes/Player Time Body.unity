@@ -3128,11 +3128,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1531331198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 190766, guid: 75c27bf47f501a74fa5723911612c226, type: 3}
-  m_PrefabInstance: {fileID: 928624324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532679922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +3952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LivingTime: 3
+  Shield: 3
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -3965,6 +3962,7 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
+  respawnPoint: {fileID: 0}
 --- !u!114 &1739968510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,6 +4854,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6472199347705084888, guid: 44a3a541f8299df4aa4a1c008ab8388d, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472199347705084888, guid: 44a3a541f8299df4aa4a1c008ab8388d, type: 3}
+      propertyPath: LivingTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6472199347710772510, guid: 44a3a541f8299df4aa4a1c008ab8388d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5304,10 +5310,18 @@ PrefabInstance:
     - target: {fileID: 6407002433978903993, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 1531331198}
+      objectReference: {fileID: 4333387354297239719, guid: 99f740fc495be1740a0af111d71dc469, type: 3}
     - target: {fileID: 6407002433978903993, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: sightRange
-      value: 0
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407002433978903993, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407002433978903993, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6407002433978903999, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: m_Name

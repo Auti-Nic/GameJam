@@ -12,9 +12,17 @@ public class Bullet : MonoBehaviour
     {
         transform.position += transform.forward * speed * Time.deltaTime;
 
+        
         if (timeAlive < lifetime)
             timeAlive += Time.deltaTime;
         else
             Destroy(gameObject);
     }
+
+    void OnCollisionEnter(Collision collisioninfo) 
+    {
+        if (collisioninfo.collider.tag == "Player")
+            Destroy(gameObject);
+    }
+    
 }

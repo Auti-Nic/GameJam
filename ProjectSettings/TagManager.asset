@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - bullet
+  - player_bullet
   layers:
   - Default
   - TransparentFX

@@ -81,10 +81,10 @@ MonoBehaviour:
   health: 1
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 5
   projectile: {fileID: 4333387354297239719, guid: 99f740fc495be1740a0af111d71dc469, type: 3}
   sightRange: 20
-  attackRange: 0
+  attackRange: 5
   playerInSightRange: 1
   playerInAttackRange: 0
 --- !u!33 &6407002433978903972

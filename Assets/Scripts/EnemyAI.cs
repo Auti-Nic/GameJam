@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
-
+    
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
-    private void Patroling()
+    public virtual void Patroling()
     {
         
         if (!walkPointSet) SearchWalkPoint();
@@ -78,13 +78,13 @@ public class EnemyAI : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer()
+    public virtual void ChasePlayer()
     {
        
         agent.SetDestination(player.position);
     }
 
-    private void AttackPlayer()
+    public virtual void AttackPlayer()
     {
         //Make sure enemy doesn't move
         
@@ -95,12 +95,11 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Vector3 gun_position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            Vector3 gun_position = new Vector3(transform.position.x+0.1f, transform.position.y + 1, transform.position.z+0.1f);
             GameObject bullet = Instantiate(projectile, gun_position, Quaternion.identity);
             Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.82f,player.position.z);
             bullet.transform.LookAt(AimPoint);
-            //rb.AddForce(transform.forward * 0.1f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+           
             ///End of attack code
 
             alreadyAttacked = true;
@@ -139,7 +138,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bullet")
+        if (other.tag == "player_bullet")
             TakeDamage(1);
     }
 }

@@ -85,7 +85,7 @@ MonoBehaviour:
   projectile: {fileID: 4333387354297239719, guid: 99f740fc495be1740a0af111d71dc469, type: 3}
   sightRange: 20
   attackRange: 0
-  playerInSightRange: 0
+  playerInSightRange: 1
   playerInAttackRange: 0
 --- !u!33 &6407002433978903972
 MeshFilter:

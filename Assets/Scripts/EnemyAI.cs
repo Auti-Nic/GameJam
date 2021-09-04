@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+
 public class EnemyAI : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -30,10 +31,13 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+
+    
     private void Awake()
     {
         // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();
+        
     }
 
     private void Update()
@@ -120,6 +124,8 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         // TODO: Should only disable so we can go back in time.
+        
+        GameObject.Find("ScoreBoard").GetComponent<ScoreScript>().scoreValue += 10;
         Destroy(gameObject);
     }
 

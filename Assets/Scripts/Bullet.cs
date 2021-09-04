@@ -22,4 +22,11 @@ public class Bullet : MonoBehaviour
         if (timeBody.TimeAlive > lifetime)
             Destroy(gameObject);
     }
+
+    void OnCollisionEnter(Collision collisioninfo) 
+    {
+        if (collisioninfo.collider.tag == "Player")
+            Destroy(gameObject);
+    }
+    
 }

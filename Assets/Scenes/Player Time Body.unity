@@ -5305,6 +5305,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1531331198}
+    - target: {fileID: 6407002433978903993, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
+      propertyPath: sightRange
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6407002433978903999, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: m_Name
       value: Enemy

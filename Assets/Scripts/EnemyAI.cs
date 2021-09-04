@@ -88,9 +88,12 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            Vector3 gun_position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            GameObject bullet = Instantiate(projectile, gun_position, Quaternion.identity);
+            Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.82f,player.position.z);
+            bullet.transform.LookAt(AimPoint);
+            //rb.AddForce(transform.forward * 0.1f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
 
             alreadyAttacked = true;

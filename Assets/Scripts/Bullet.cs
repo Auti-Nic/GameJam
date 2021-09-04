@@ -4,8 +4,17 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     
+    [SerializeField] private float lifetime;
+
+    private float timeAlive = 0;
+    
     void Update()
     {
-        transform.position += Vector3.forward * speed * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
+
+        if (timeAlive < lifetime)
+            timeAlive += Time.deltaTime;
+        else
+            Destroy(gameObject);
     }
 }

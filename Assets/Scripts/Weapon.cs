@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     private enum FireMode
     {
@@ -12,8 +10,6 @@ public class Weapon : MonoBehaviour
     }
     
     [SerializeField] private float fireRate;
-
-    [SerializeField] private GameObject bulletPrefab;
 
     [SerializeField] private FireMode fireMode;
 
@@ -53,10 +49,8 @@ public class Weapon : MonoBehaviour
             }
     }
 
-    private void Fire()
+    protected virtual void Fire()
     {
         reloadTimer = fireRate;
-
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }

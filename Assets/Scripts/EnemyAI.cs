@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("ThirdPersonController").transform;
+        // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 

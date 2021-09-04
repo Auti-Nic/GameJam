@@ -3,21 +3,22 @@ using UnityEngine;
 
 public class TimeBody : MonoBehaviour
 {
-public bool isRewinding = false;
+    public bool isRewinding = false;
 
-public List<PointInTime> pointsInTime = new List<PointInTime>();
+    public List<PointInTime> pointsInTime = new List<PointInTime>();
 
-private Rigidbody rb;
-[SerializeField] private float maxTimeReversal;
+    private Rigidbody rb;
+    [SerializeField] private float maxTimeReversal;
 
-private bool recentlySpawned = true;
+    private bool recentlySpawned = true;
 
-private void Start()
-{
-    rb = GetComponent<Rigidbody>();
-}
+    public float TimeAlive { get; set; } = 0;
 
-// Update is called once per frame
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -50,6 +51,8 @@ private void Start()
             if (recentlySpawned)
                 Destroy(gameObject);
         }
+        
+        TimeAlive -= Time.fixedDeltaTime;
     }
 
     private void Record()
@@ -62,6 +65,8 @@ private void Start()
                 recentlySpawned = false;
         }
         pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+
+        TimeAlive += Time.fixedDeltaTime;
     }
 
     private void StopRewind()

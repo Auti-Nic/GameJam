@@ -20,11 +20,12 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.magnitude < maxSpeed)
             rb.AddForce(movement * acceleration * Time.deltaTime);
 
+        // Player Rotation
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out var hit, 1000))
         {
-            var lookPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            Vector3 lookPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookPoint);
         }
     }

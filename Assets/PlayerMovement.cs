@@ -21,8 +21,11 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(movement * acceleration * Time.deltaTime);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
+
         if (Physics.Raycast(ray, out var hit, 1000))
-            transform.LookAt(hit.point);
+        {
+            var lookPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            transform.LookAt(lookPoint);
+        }
     }
 }

@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
+
 public class EnemyAI : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -109,10 +112,14 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        
+        // Removed delay for now so it feels more responsive
+        //if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) DestroyEnemy();
     }
     private void DestroyEnemy()
     {
+        // TODO: Should only disable so we can go back in time.
         Destroy(gameObject);
     }
 
@@ -122,5 +129,11 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "bullet")
+            TakeDamage(1);
     }
 }

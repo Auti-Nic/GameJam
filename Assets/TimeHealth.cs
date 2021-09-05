@@ -11,6 +11,8 @@ public class TimeHealth : MonoBehaviour
 
     [SerializeField] private ScoreScript scoreScript;
     [SerializeField] private Text shieldText;
+
+    private AudioSource audioSource;
     
     private float health;
     private float shield;
@@ -48,6 +50,8 @@ public class TimeHealth : MonoBehaviour
     {
         Health = maxTimeHealth;
         Shield = maxShield;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -72,6 +76,9 @@ public class TimeHealth : MonoBehaviour
             {
                 Shield = 0;
                 Health -= damage - Shield;
+                
+                if (!audioSource.isPlaying)
+                    audioSource.Play();
             }
         }
     }

@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.magnitude < maxSpeed)
             rb.AddForce(movement * acceleration * Time.deltaTime);
-
+        
+        GetComponentInChildren<Animator>().SetFloat("Speed",rb.velocity.magnitude);
+        
+      
         // Player Rotation
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

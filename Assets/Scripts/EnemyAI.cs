@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
     private TimeManager timeManager;
 
     
-    private void Awake()
+    public virtual void Awake()
     {
         // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();
@@ -147,5 +147,8 @@ public class EnemyAI : MonoBehaviour
             TakeDamage(1);
             other.gameObject.SetActive(false);
         }
+        
+        if (other.CompareTag("player_sword"))
+            TakeDamage(1);
     }
 }

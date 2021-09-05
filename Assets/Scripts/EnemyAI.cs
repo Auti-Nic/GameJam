@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    [SerializeField] private float score;
 
     //Patroling
     public Vector3 walkPoint;
@@ -26,15 +27,16 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    [SerializeField] protected Vector3 gunPosition;
     
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    private bool playerInSightRange, playerInAttackRange;
 
     private TimeManager timeManager;
 
     
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();
@@ -84,7 +86,6 @@ public class EnemyAI : MonoBehaviour
 
     public virtual void ChasePlayer()
     {
-       
         agent.SetDestination(player.position);
     }
 
@@ -92,24 +93,29 @@ public class EnemyAI : MonoBehaviour
     {
         //Make sure enemy doesn't move
         
-        agent.SetDestination(transform.position);
+        
 
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Vector3 gun_position = new Vector3(transform.position.x+0.1f, transform.position.y + 1, transform.position.z+0.1f);
-            GameObject bullet = Instantiate(projectile, gun_position, Quaternion.identity);
-            Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.4f,player.position.z);
-            bullet.transform.LookAt(AimPoint);
-           
+            Fire();
+
             ///End of attack code
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+
+    protected virtual void Fire()
+    {
+        GameObject bullet = Instantiate(projectile, gunPosition, Quaternion.identity);
+        Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.4f, player.position.z);
+        bullet.transform.LookAt(AimPoint);
+    }
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
@@ -126,9 +132,7 @@ public class EnemyAI : MonoBehaviour
     }
     public virtual void DestroyEnemy()
     {
-        // TODO: Should only disable so we can go back in time.
-
-        FindObjectOfType<TimeHealth>().Health += 10;
+        FindObjectOfType<TimeHealth>().Health += score;
         gameObject.SetActive(false);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int scoreValue = 0;
+    public float scoreValue = 0;
     private Text score;
 
     void Start()
@@ -16,6 +16,6 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "Score: " + scoreValue;
+        score.text = "Score: " + Mathf.Round(scoreValue);
     }
 }

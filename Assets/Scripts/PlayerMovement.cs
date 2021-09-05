@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float acceleration;
 
     private Rigidbody rb;
-    public int TTL = 30;
-    public int shield = 10;
 
     void Start()
     {
@@ -30,37 +28,5 @@ public class PlayerMovement : MonoBehaviour
             Vector3 lookPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookPoint);
         }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if (shield > 0) {
-            if (shield > damage)
-            {
-                //can defense all the damage from by shield
-                shield -= damage;
-            } else if (shield < damage) {
-                shield = 0;
-                TTL -= (damage - shield);
-            }
-        }
-
-
-        // Removed delay for now so it feels more responsive
-        //if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-        if (TTL <= 0) GameOver();
-    }
-
-    public void GameOver()
-    {
-        //TODO: Game Over Scene
-        Debug.Log("Game Overr");
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.tag == "bullet" || other.tag == "enemy")
-            TakeDamage(1);
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6407002433978903995}
   - component: {fileID: -9160599943706946992}
   - component: {fileID: 7117854660858990148}
+  - component: {fileID: -7244839264702193106}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -166,3 +167,17 @@ CapsuleCollider:
   m_Height: 1.5768298
   m_Direction: 1
   m_Center: {x: 0, y: 0.7873576, z: -0.0154325105}
+--- !u!114 &-7244839264702193106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407002433978903999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488349defd148de40a00373f4ab2457f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  maxTimeReversal: 5

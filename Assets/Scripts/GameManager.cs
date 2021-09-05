@@ -27,5 +27,11 @@ namespace DefaultNamespace
             
             SceneManager.LoadScene(gameSceneIndex);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SceneManager.LoadScene(0);
+        }
     }
 }

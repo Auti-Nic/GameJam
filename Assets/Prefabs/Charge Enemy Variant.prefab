@@ -21,16 +21,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   health: 1
-  score: 0
+  score: 5
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 5
+  alreadyAttacked: 0
   projectile: {fileID: 0}
   gunPosition: {x: 0, y: 0, z: 0}
   sightRange: 20
   attackRange: 5
   playerInSightRange: 1
   playerInAttackRange: 0
+  hit: {fileID: 0}
+  fire: {fileID: 0}
 --- !u!95 &1914538142
 Animator:
   serializedVersion: 3
@@ -115,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407002433978903999, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: m_Name
-      value: Charge Enemy
+      value: Charge Enemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7117854660858990148, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
       propertyPath: m_Radius

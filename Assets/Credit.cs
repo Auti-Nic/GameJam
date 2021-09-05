@@ -9,5 +9,10 @@ public class Credit : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
+    
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
 

@@ -25,10 +25,10 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
             StartRewind();
 
-        if (Input.GetKeyUp(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
             StopRewind();
     }
     

@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
     private TimeManager timeManager;
 
     
-    private void Awake()
+    public virtual void Awake()
     {
         // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();

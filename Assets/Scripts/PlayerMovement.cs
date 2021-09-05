@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,11 +8,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float acceleration;
 
+
+    //Dash
+    public float dashDuration = 0.2f;
+    public int dashForce = 50;
     private Rigidbody rb;
+    
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+       
+        
     }
 
     void Update()
@@ -31,5 +41,26 @@ public class PlayerMovement : MonoBehaviour
             Vector3 lookPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookPoint);
         }
+
+        if(Input.GetKeyDown("space"))
+        {
+            StartCoroutine(Dash());
+            
+            //transform.Translate(Vector3.forward * 0 );
+        }
+
+        
     }
+
+    IEnumerator Dash()
+    {
+        
+        rb.AddForce(transform.forward * dashForce, ForceMode.VelocityChange);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb.velocity = Vector3.zero;
+
+    } 
+    
 }

@@ -3,29 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public class BombGrunt : EnemyAI
 {
-
-    // Start is called before the first frame update
- 
-
-    //Patroling
-   
-    public bool walkPointSet;
-
-
-    //Animator 
     private Animator animator;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-
     }
 
-    // Update is called once per frame
     public override void Patroling()
     {
         animator.SetBool("IsWalking", true);

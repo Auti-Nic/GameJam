@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private float difficulty;
+    [SerializeField] private float difficultyIncreaseSpeed;
     
     // TODO: Reference to the player / camera
     [SerializeField] private Transform player;
@@ -24,6 +27,10 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        difficulty += difficultyIncreaseSpeed * Time.deltaTime;
+
+        timeBetweenWaves = 1 / difficulty;
+        
         // TODO: If previous wave completed, wait and then spawn a new wave
         // TODO: Needs to be affected by reversal
         if (waveTimer < timeBetweenWaves)
@@ -43,7 +50,9 @@ public class EnemyManager : MonoBehaviour
         
         // TODO: Spawn more than one enemy
         // TODO: Should probably spawn facing towards the player
-        var newEnemy = Instantiate(enemyPrefabs[0], spawnLocation, Quaternion.identity);
+
+        var randomEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        var newEnemy = Instantiate(randomEnemy, spawnLocation, Quaternion.identity);
         spawnedEnemies.Add(newEnemy);
 
         newEnemy.GetComponent<EnemyAI>().player = player;

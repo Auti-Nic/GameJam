@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour
 
     public float health;
     [SerializeField] private float score;
+    protected AudioSource audioSource;
 
     //Patroling
     public Vector3 walkPoint;
@@ -41,6 +42,7 @@ public class EnemyAI : MonoBehaviour
         // player = GameObject.Find("ThirdPersonController").transform;
         agent = GetComponent<NavMeshAgent>();
         timeManager = FindObjectOfType<TimeManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

@@ -45,5 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 6407002433978903999, guid: 6584ee2f71e89bf42863a8e1d42b1a21, type: 3}
+  - {fileID: 7029035872947933712, guid: fc18e7f388dc3af41ae5176ff0212e53, type: 3}
+  - {fileID: 1384923989555638105, guid: bf7b4ea365dbfc94b9f7ddd2f0619305, type: 3}
+  - {fileID: 1849321782177894624, guid: 718196fba16be7f4dab4c2d490c8ef8e, type: 3}
+  difficulty: 0
+  difficultyIncreaseSpeed: 0.1
   player: {fileID: 0}
   spawnRange: 20

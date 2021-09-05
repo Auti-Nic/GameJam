@@ -32,6 +32,7 @@ namespace DefaultNamespace
             
             newMortarBullet.GetComponent<Rigidbody>().AddForce(transform.TransformPoint(launchForce));
 
+            audioSource.clip = fire;
             audioSource.Play();
         }
 

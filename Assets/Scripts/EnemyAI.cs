@@ -36,6 +36,9 @@ public class EnemyAI : MonoBehaviour
 
     private TimeManager timeManager;
 
+    [SerializeField] protected AudioClip hit;
+    [SerializeField] protected AudioClip fire;
+
     
     protected virtual void Awake()
     {
@@ -148,6 +151,12 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = hit;
+            audioSource.Play();
+        }
+        
         if (other.CompareTag("player_bullet"))
         {
             TakeDamage(1);

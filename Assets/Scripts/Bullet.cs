@@ -7,24 +7,28 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifetime;
 
     private TimeBody timeBody;
+    private TimeManager timeManager;
 
     private void Start()
     {
         timeBody = GetComponent<TimeBody>();
+        timeManager = FindObjectOfType<TimeManager>();
     }
 
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
 
-        if (timeBody.TimeAlive > lifetime)
-            Destroy(gameObject);
+        if (!timeManager.isRewinding && timeBody.TimeAlive >= lifetime)
+            gameObject.SetActive(false);
+        
+        if (timeManager.isRewinding && timeBody.TimeAlive < lifetime)
+            gameObject.SetActive(true);
     }
 
     void OnCollisionEnter(Collision collisioninfo) 
     {
         if (collisioninfo.collider.tag == "Player")
-            Destroy(gameObject);
+            gameObject.SetActive(false);
     }
-    
 }

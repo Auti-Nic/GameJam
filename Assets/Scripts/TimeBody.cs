@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +63,7 @@ public class TimeBody : MonoBehaviour
         else
         {
             if (recentlySpawned)
-                Destroy(gameObject);
+                gameObject.SetActive(false);
         }
         
         TimeAlive -= Time.fixedDeltaTime;
@@ -80,5 +81,10 @@ public class TimeBody : MonoBehaviour
         pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation, false));
 
         TimeAlive += Time.fixedDeltaTime;
+    }
+
+    private void OnDisable()
+    {
+        timeManager.timeBodiesDisabled.Add(this);
     }
 }

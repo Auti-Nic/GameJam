@@ -129,7 +129,7 @@ public class EnemyAI : MonoBehaviour
         // TODO: Should only disable so we can go back in time.
         
         GameObject.Find("ScoreBoard").GetComponent<ScoreScript>().scoreValue += 10;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()

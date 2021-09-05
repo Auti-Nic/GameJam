@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6002476598569339239}
   - component: {fileID: 6283718891758718539}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: bullet
+  m_Name: Enemy Bullet
+  m_TagString: enemy_bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  lifetime: 1
+  lifetime: 5
+  damage: 1
 --- !u!114 &6283718891758718539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,5 +124,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488349defd148de40a00373f4ab2457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRewinding: 0
-  maxTimeReversal: 5

@@ -101,7 +101,7 @@ public class EnemyAI : MonoBehaviour
             ///Attack code here
             Vector3 gun_position = new Vector3(transform.position.x+0.1f, transform.position.y + 1, transform.position.z+0.1f);
             GameObject bullet = Instantiate(projectile, gun_position, Quaternion.identity);
-            Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.82f,player.position.z);
+            Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.4f,player.position.z);
             bullet.transform.LookAt(AimPoint);
            
             ///End of attack code
@@ -142,8 +142,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.tag == "player_bullet")
-          TakeDamage(1);
+        if (other.CompareTag("player_bullet"))
+        {
+            TakeDamage(1);
+            other.gameObject.SetActive(false);
+        }
     }
 }

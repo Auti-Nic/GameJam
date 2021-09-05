@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lifetime: 1
+  damage: 1
 --- !u!114 &6124337529871392933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,5 +124,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488349defd148de40a00373f4ab2457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRewinding: 0
-  maxTimeReversal: 5

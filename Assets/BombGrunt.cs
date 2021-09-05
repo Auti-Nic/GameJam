@@ -10,14 +10,15 @@ public class BombGrunt : EnemyAI
     // Start is called before the first frame update
  
 
-    //Patroling
-   
-    public bool walkPointSet;
+
 
 
     //Animator 
     private Animator animator;
 
+    //explosion 
+    public GameObject explosionPrefab;
+    public int explosionDamage = 5;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -26,33 +27,8 @@ public class BombGrunt : EnemyAI
     }
 
     // Update is called once per frame
-    public override void Patroling()
-    {
-        animator.SetBool("IsWalking", true);
-        if (!walkPointSet) SearchWalkPoint();
 
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
 
     public override void ChasePlayer()
     {
@@ -73,5 +49,12 @@ public class BombGrunt : EnemyAI
         
     }
 
-    
+    public override void DestroyEnemy()
+    {
+        GameObject.Find("ScoreBoard").GetComponent<ScoreScript>().scoreValue += 5;
+        Destroy(gameObject);
+    }
+
+ 
+   
 }

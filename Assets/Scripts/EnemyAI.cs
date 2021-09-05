@@ -127,8 +127,8 @@ public class EnemyAI : MonoBehaviour
     public virtual void DestroyEnemy()
     {
         // TODO: Should only disable so we can go back in time.
-        
-        GameObject.Find("ScoreBoard").GetComponent<ScoreScript>().scoreValue += 10;
+
+        FindObjectOfType<TimeHealth>().Health += 10;
         gameObject.SetActive(false);
     }
 

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
-    
     [SerializeField] private float lifetime;
+    [SerializeField] private float damage;
 
     private TimeBody timeBody;
     private TimeManager timeManager;
@@ -24,11 +24,5 @@ public class Bullet : MonoBehaviour
         
         if (timeManager.isRewinding && timeBody.TimeAlive < lifetime)
             gameObject.SetActive(true);
-    }
-
-    void OnCollisionEnter(Collision collisioninfo) 
-    {
-        if (collisioninfo.collider.tag == "Player")
-            gameObject.SetActive(false);
     }
 }

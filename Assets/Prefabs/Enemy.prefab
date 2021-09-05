@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7244839264702193106}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488349defd148de40a00373f4ab2457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRewinding: 0
-  maxTimeReversal: 5

@@ -78,7 +78,16 @@ public class TimeHealth : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bullet" || other.tag == "enemy")
+        if (other.CompareTag("enemy_bullet"))
+        {
+            // TODO: Should be equal to bullet's damage field
             TakeDamage(1);
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("enemy"))
+        {
+            TakeDamage(1);
+        }
     }
 }

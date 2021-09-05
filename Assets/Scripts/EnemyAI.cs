@@ -147,5 +147,8 @@ public class EnemyAI : MonoBehaviour
             TakeDamage(1);
             other.gameObject.SetActive(false);
         }
+        
+        if (other.CompareTag("player_sword"))
+            TakeDamage(1);
     }
 }

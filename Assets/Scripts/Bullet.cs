@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
-    [SerializeField] private float damage;
+    public float damage;
 
     private TimeBody timeBody;
     private TimeManager timeManager;

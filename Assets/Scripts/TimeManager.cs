@@ -16,6 +16,13 @@ public class TimeManager : MonoBehaviour
 
     private List<ManagerPointInTime> pointsInTime = new List<ManagerPointInTime>();
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -70,12 +77,14 @@ public class TimeManager : MonoBehaviour
 
     private void StartRewind()
     {
+        audioSource.Play();
         isRewinding = true;
         OnStartRewind.Invoke();
     }
     
     private void StopRewind()
     {
+        audioSource.Stop();
         isRewinding = false;
         OnStopRewind.Invoke();
     }

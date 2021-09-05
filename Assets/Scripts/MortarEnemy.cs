@@ -31,6 +31,9 @@ namespace DefaultNamespace
             var newMortarBullet = Instantiate(projectile, transform.position + gunPosition, Quaternion.identity);
             
             newMortarBullet.GetComponent<Rigidbody>().AddForce(transform.TransformPoint(launchForce));
+
+            audioSource.clip = fire;
+            audioSource.Play();
         }
 
         protected override void Fire()

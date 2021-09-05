@@ -18,12 +18,10 @@ public class BombGrunt : EnemyAI
     public int explosionDamage = 5;
     
    
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
-        
-
     }
     
     public override void ChasePlayer()

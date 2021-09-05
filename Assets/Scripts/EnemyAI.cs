@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour
 
     public float health;
     [SerializeField] private float score;
+    protected AudioSource audioSource;
 
     //Patroling
     public Vector3 walkPoint;
@@ -25,22 +26,26 @@ public class EnemyAI : MonoBehaviour
 
     //Attacking
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public bool alreadyAttacked = false;
     public GameObject projectile;
     [SerializeField] protected Vector3 gunPosition;
     
     //States
     public float sightRange, attackRange;
-    private bool playerInSightRange, playerInAttackRange;
+    public bool playerInSightRange, playerInAttackRange;
 
     private TimeManager timeManager;
+
+    [SerializeField] protected AudioClip hit;
+    [SerializeField] protected AudioClip fire;
 
     
     protected virtual void Awake()
     {
-        // player = GameObject.Find("ThirdPersonController").transform;
+        player = FindObjectOfType<PlayerMovement>().transform;
         agent = GetComponent<NavMeshAgent>();
         timeManager = FindObjectOfType<TimeManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -111,7 +116,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Fire()
     {
-        GameObject bullet = Instantiate(projectile, gunPosition, Quaternion.identity);
+        GameObject bullet = Instantiate(projectile, transform.position + gunPosition, Quaternion.identity);
         Vector3 AimPoint = new Vector3(player.position.x, player.position.y + 0.4f, player.position.z);
         bullet.transform.LookAt(AimPoint);
     }
@@ -146,6 +151,12 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = hit;
+            audioSource.Play();
+        }
+        
         if (other.CompareTag("player_bullet"))
         {
             TakeDamage(1);

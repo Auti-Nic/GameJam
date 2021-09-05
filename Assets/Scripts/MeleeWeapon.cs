@@ -26,7 +26,7 @@ namespace DefaultNamespace
             base.Fire();
             
             animator.SetTrigger(Attack);
-
+            
             collider.enabled = true;
         }
 

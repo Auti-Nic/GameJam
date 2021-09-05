@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4174509565288734208}
   m_Layer: 0
   m_Name: Melee Weapon
-  m_TagString: Untagged
+  m_TagString: player_bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 4174509565563323993}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: bullet
+  m_TagString: player_bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

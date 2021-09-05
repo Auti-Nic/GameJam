@@ -138,7 +138,8 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "player_bullet")
-            TakeDamage(1);
+          TakeDamage(1);
     }
 }

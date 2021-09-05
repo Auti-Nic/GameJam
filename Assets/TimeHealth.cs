@@ -12,6 +12,9 @@ public class TimeHealth : MonoBehaviour
     [SerializeField] private ScoreScript scoreScript;
     [SerializeField] private Text shieldText;
 
+    [SerializeField] private AudioClip shieldWarning;
+    [SerializeField] private AudioClip hit;
+
     private AudioSource audioSource;
     
     private float health;
@@ -76,9 +79,18 @@ public class TimeHealth : MonoBehaviour
             {
                 Shield = 0;
                 Health -= damage - Shield;
-                
+
                 if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = shieldWarning;
                     audioSource.Play();
+                }
+            }
+            
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = hit;
+                audioSource.Play();
             }
         }
     }

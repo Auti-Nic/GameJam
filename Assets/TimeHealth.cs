@@ -59,7 +59,7 @@ public class TimeHealth : MonoBehaviour
         Shield += shieldRegenSpeed * Time.deltaTime;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (Shield > 0)
         {
@@ -80,14 +80,11 @@ public class TimeHealth : MonoBehaviour
     {
         if (other.CompareTag("enemy_bullet"))
         {
-            // TODO: Should be equal to bullet's damage field
-            TakeDamage(1);
+            TakeDamage(other.GetComponent<Bullet>().damage);
             other.gameObject.SetActive(false);
         }
 
         if (other.CompareTag("enemy"))
-        {
             TakeDamage(1);
-        }
     }
 }

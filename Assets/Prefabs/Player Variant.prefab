@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &1462643145
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8565188544631040884}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4a1fbd55e5ce4594da8b302eda816608, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!136 &1155667372
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29,10 +10,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.71856487
-  m_Height: 3.005247
+  m_Radius: 0.7
+  m_Height: 2.54
   m_Direction: 1
-  m_Center: {x: -0.034591377, y: 0, z: -0.10367954}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!137 &1155667370
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -202,6 +183,25 @@ MonoBehaviour:
   shieldText: {fileID: 0}
   shieldWarning: {fileID: 8300000, guid: 3a096da16a344854b9ab9963c475baaa, type: 3}
   hit: {fileID: 8300000, guid: da1736dfd7eda914b80632b77d4c4a48, type: 3}
+--- !u!95 &1462643145
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565188544631040884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a1fbd55e5ce4594da8b302eda816608, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8799119188401018405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ad088783787b0d43863fa8cadb1cf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ad088783787b0d43863fa8cadb1cf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -785,11 +785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3110424922205126246, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.7
+      value: -30.8
       objectReference: {fileID: 0}
     - target: {fileID: 3110424922205126246, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.68
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3110424922205126246, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -824,8 +824,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3110424922205126247, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110424922205126247, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3110424922205126247, guid: 13893471284b8ae40a0ce0d521b16c4a, type: 3}
       propertyPath: m_IsKinematic

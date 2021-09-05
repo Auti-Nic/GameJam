@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/New Player.unity
     guid: fb4c23d3b2f3ada448ac22b04129a605
+  - enabled: 1
+    path: Assets/Scenes/Open Screen.unity
+    guid: 3e36b0c383b54d74e996fd868da549b9
+  - enabled: 1
+    path: Assets/Scenes/Final Game.unity
+    guid: 8e3616246fe26f1418fd50943923431b
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: ad79b4842cf0d524cb5af5d15f940a75
   m_configObjects: {}

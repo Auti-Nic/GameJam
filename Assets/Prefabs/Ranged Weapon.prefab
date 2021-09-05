@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5922134528251499911}
   m_Layer: 6
   m_Name: Ranged Weapon
-  m_TagString: Untagged
+  m_TagString: player_bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,4 +46,4 @@ MonoBehaviour:
   fireRate: 0.2
   fireMode: 0
   burstRounds: 0
-  bulletPrefab: {fileID: 4333387354297239719, guid: 99f740fc495be1740a0af111d71dc469, type: 3}
+  bulletPrefab: {fileID: 4605226756783072841, guid: ec3d4e9be97b5ba46ada506e5c31f4a0, type: 3}

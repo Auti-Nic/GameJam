@@ -124,7 +124,7 @@ public class EnemyAI : MonoBehaviour
         //if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
         if (health <= 0) DestroyEnemy();
     }
-    private void DestroyEnemy()
+    public virtual void DestroyEnemy()
     {
         // TODO: Should only disable so we can go back in time.
         
@@ -142,7 +142,8 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "player_bullet")
-            TakeDamage(1);
+          TakeDamage(1);
     }
 }

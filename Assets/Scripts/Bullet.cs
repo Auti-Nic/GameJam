@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
     
     [SerializeField] private float lifetime;
 
-    private float timeAlive = 0;
-
     private TimeBody timeBody;
 
     private void Start()

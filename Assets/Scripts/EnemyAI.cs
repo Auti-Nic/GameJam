@@ -128,6 +128,12 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = hit;
+            audioSource.Play();
+        }
+        
         health -= damage;
 
         
@@ -151,12 +157,6 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!audioSource.isPlaying)
-        {
-            audioSource.clip = hit;
-            audioSource.Play();
-        }
-        
         if (other.CompareTag("player_bullet"))
         {
             TakeDamage(1);

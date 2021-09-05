@@ -19,6 +19,13 @@ public abstract class Weapon : MonoBehaviour
 
     private int burstRoundsFired = 0;
     
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
     void Update()
     {
         if (reloadTimer > 0)
@@ -52,5 +59,7 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Fire()
     {
         reloadTimer = fireRate;
+        
+        audioSource.Play();
     }
 }

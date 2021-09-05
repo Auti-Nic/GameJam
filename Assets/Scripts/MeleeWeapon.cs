@@ -11,13 +11,6 @@ namespace DefaultNamespace
         
         private static readonly int Attack = Animator.StringToHash("Attack");
 
-        private AudioSource audioSource;
-
-        private void Start()
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
-
         private void OnEnable()
         {
             events.OnAnimationEnd += OnAnimationEnd;
@@ -34,8 +27,6 @@ namespace DefaultNamespace
             
             animator.SetTrigger(Attack);
             
-            audioSource.Play();
-
             collider.enabled = true;
         }
 

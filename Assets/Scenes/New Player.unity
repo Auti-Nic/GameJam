@@ -425,6 +425,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5235620215368822559, guid: 551616a4a9437bc46ba4bb3aab2f2b10, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5852061255755714119, guid: 551616a4a9437bc46ba4bb3aab2f2b10, type: 3}
       propertyPath: m_Name
       value: Player Variant
